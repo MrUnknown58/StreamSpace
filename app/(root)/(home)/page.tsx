@@ -5,9 +5,11 @@ const Home = () => {
   const time = now.toLocaleTimeString("en-US", {
     hour: "2-digit",
     minute: "2-digit",
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   });
   const date = new Intl.DateTimeFormat("en-US", {
     dateStyle: "full",
+    timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
   }).format(now);
   return (
     <section className="flex text-white size-full flex-col gap-10">
