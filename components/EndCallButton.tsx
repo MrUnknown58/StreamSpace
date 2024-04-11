@@ -17,7 +17,7 @@ const EndCallButton = () => {
   if (!isMeetingOwner) return null;
   return (
     <Button
-      className="bg-red-500v  "
+      className="bg-red-500"
       onClick={async () => {
         await call.endCall();
         router.push("/");

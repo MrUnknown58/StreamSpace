@@ -22,21 +22,21 @@ import { useRouter, useSearchParams } from "next/navigation";
 import EndCallButton from "./EndCallButton";
 import Loader from "./Loader";
 
-type CallLayoutType = "speaker-left" | "speaker-right" | "grid";
+type CallLayoutType = "speaker left" | "speaker right" | "grid";
 const MeetingRoom = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const isPersonalRoom = !!searchParams.get("personal");
-  const [layout, setLayout] = useState<CallLayoutType>("speaker-left");
+  const [layout, setLayout] = useState<CallLayoutType>("speaker left");
   const [showParticipants, setShowParticipants] = useState(true);
   const { useCallCallingState } = useCallStateHooks();
   const callingState = useCallCallingState();
   if (callingState !== CallingState.JOINED) return <Loader />;
   const CallLayout = () => {
     switch (layout) {
-      case "speaker-left":
+      case "speaker left":
         return <SpeakerLayout participantsBarPosition={"right"} />;
-      case "speaker-right":
+      case "speaker right":
         return <SpeakerLayout participantsBarPosition="left" />;
       case "grid":
         return <PaginatedGridLayout />;
